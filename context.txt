@@ -1,0 +1,66 @@
+### Project Folder Structure – Explanation of Each File (Self-Revision)
+
+The `app/` folder contains the core logic of the FastAPI application. Below is a detailed explanation of what each file in this folder does:
+
+---
+
+#### `crud.py`
+
+This file handles the **business logic** for interacting with the database.
+
+* It contains **functions to insert data** into the database (Create operations).
+* It also defines logic to **retrieve data** from the database (Read operations).
+* These functions are later called by route handlers to perform actual database operations.
+
+---
+
+#### `database.py`
+
+This file is responsible for **setting up the database connection**.
+
+* It defines the **SQLAlchemy engine** and session local, which are used to connect and interact with the database.
+* Also handles **session management** (i.e., opening and closing database sessions) to ensure smooth DB operations.
+* Acts as the foundation for database-related interactions throughout the project.
+
+---
+
+#### `main.py`
+
+This is the **entry point** of the FastAPI application.
+
+* It creates an instance of the `FastAPI` class.
+* Registers the routes defined in the `routes.py` file using `app.include_router(...)`.
+* You can also configure middleware, CORS settings, and event handlers here if needed.
+* Think of it as the "main controller" that brings everything together.
+
+---
+
+#### `models.py`
+
+This file defines the **database models** using SQLAlchemy ORM.
+
+* These models map directly to tables in the database.
+* Each class in this file represents a table, and each class attribute represents a column.
+* It includes table structure, data types, and relationships if any (e.g., `ForeignKey`).
+
+---
+
+#### `routes.py`
+
+This file contains the **API endpoint definitions**.
+
+* Helps in organizing the routes (`GET`, `POST`, etc.) separately from the main app.
+* Each route is mapped to a corresponding function in `crud.py` to perform specific operations (e.g., save or retrieve data).
+* This modular approach improves **code maintainability and readability**.
+
+---
+
+#### `schemas.py`
+
+This file defines the **Pydantic schemas** used for **data validation** and **serialization**.
+
+* Ensures that the incoming request data adheres to a specific format before it's processed.
+* Also used for **response models**, i.e., shaping the output before it's sent back to the client.
+* Acts as a data contract between the client and the server.
+
+

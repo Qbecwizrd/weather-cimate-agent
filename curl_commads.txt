@@ -1,0 +1,10 @@
+
+1. ask endpoint
+curl -X POST http://127.0.0.1:8000/ask -H "Content-Type: application/json" -d "{\"query\": \"What is climate change?\"}"
+
+
+2. Ingest endpoint
+curl -X POST http://127.0.0.1:8000/ingest -H "Content-Type: application/json" -d "{\"urls\": [\"https://climate.nasa.gov/news/\", \"https://www.carbonbrief.org/section/science/\"]}"
+
+3. Summary Endpoint 
+curl http://localhost:8000/summary

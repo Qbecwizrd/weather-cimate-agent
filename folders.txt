@@ -1,0 +1,29 @@
+weather-journal-api/
+├── app/
+│   ├── main.py              ← All routes come here (weather + agentic)
+│   ├── models.py
+│   ├── schemas.py
+│   ├── crud.py
+│   ├── routes.py
+│   └── insights.py          ← For weather journal local insights
+│
+├── climate_agent/           ← New folder for the agentic AI logic 💡
+│   ├── __init__.py
+│   ├── config.py            ← URLs, sources, constants
+│   ├── ingest.py            ← LangChain Community Tools used here
+│   ├── embedder.py          ← Embeds using OpenAI / HuggingFace
+│   ├── vector_store.py      ← Chroma or FAISS logic
+│   ├── agent.py             ← LLM + RetrievalChain agent here
+│   ├── routes.py            ← API logic to expose: /ask, /summary
+│   ├── utils.py 
+│   ├── summary.py 
+│   └── prompts/
+│       └── climate_qa_prompt.txt
+│
+├── data/
+│   ├── raw/                 ← Raw text files scraped
+│   └── vector_store/        ← DB-backed or persisted vector chunks
+│
+├── requirements.txt
+└── README.md
+
