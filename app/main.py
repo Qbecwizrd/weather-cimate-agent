@@ -5,6 +5,16 @@ from climate_agent.routes import router as climate_router  # 👈 NEW IMPORT
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080", "http://localhost:5173"],  # Add your frontend URLs here
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 base.metadata.create_all(bind=engine)
 
 @app.get("/")
