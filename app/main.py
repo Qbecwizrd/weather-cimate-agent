@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "http://localhost:5173"],  # Add your frontend URLs here
+    allow_origins=["http://localhost:8080", "http://localhost:5173" , "https://eco-ask-ai.onrender.com/"],  # Add your frontend URLs here
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,3 +24,4 @@ def read_root():
 # Include routers
 app.include_router(journal_router)         # 📘 Existing journal routes
 app.include_router(climate_router)         # 🌤️ Climate agent routes
+
